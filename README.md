@@ -2,8 +2,6 @@
 
 A visual **Virtual Memory Simulator** for teaching and experimentation. It models address translation and key OS mechanisms: page lookup, page-in/page-out, and page replacement. Compare multiple policies (FIFO, LRU, Optimal, Second-Chance/Clock, NRU), visualize state changes, and track metrics live.
 
-> Status: Week 1 skeleton in place (core + tests + minimal UI). Features expand weekly.
-
 ---
 
 ##  Features
