@@ -1,10 +1,6 @@
-# Virtual Memory Simulator (Java + JavaFX)
+# Virtual Memory Simulator
 
 A visual **Virtual Memory Simulator** for teaching and experimentation. It models address translation and key OS mechanisms: page lookup, page-in/page-out, and page replacement. Compare multiple policies (FIFO, LRU, Optimal, Second-Chance/Clock, NRU), visualize state changes, and track metrics live.
-
-> Status: Week 1 skeleton in place (core + tests + minimal UI). Features expand weekly.
-
----
 
 ##  Features
 
@@ -15,16 +11,12 @@ A visual **Virtual Memory Simulator** for teaching and experimentation. It model
 - **Trace support**: load from text/CSV; sample traces included
 - **Cross-platform UI**: JavaFX (portable, lightweight)
 
----
-
 ##  What I learned
 
 - How page faults occur and are resolved
 - Trade-offs between FIFO / LRU / Optimal / Clock / NRU
 - The effect of frame count and locality on fault rate
 - (Optional) TLB impact on AMAT and hit/miss rates
-
----
 
 ## Getting Started
 
