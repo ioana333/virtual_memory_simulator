@@ -15,17 +15,6 @@ Modern operating systems use **virtual memory** to give processes the illusion o
 
 The simulator focuses on understanding **behavior**, not hardware-level timing.
 
-## 🎯 Objectives
-
-- Simulate virtual memory paging
-- Visualize page hits and page faults
-- Implement and compare page replacement algorithms:
-  - FIFO (First-In, First-Out)
-  - LRU (Least Recently Used)
-  - OPT (Optimal – uses future knowledge)
-- Provide step-by-step and full-run execution
-- Generate performance statistics and benchmark reports
-
 ## Implemented Algorithms
 
 | Algorithm | Description |
