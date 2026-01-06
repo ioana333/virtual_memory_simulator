@@ -1,34 +1,72 @@
-# Virtual Memory Simulator (Java + JavaFX)
+# Virtual Memory Simulator (Paging)
 
-A visual **Virtual Memory Simulator** for teaching and experimentation. It models address translation and key OS mechanisms: page lookup, page-in/page-out, and page replacement. Compare multiple policies (FIFO, LRU, Optimal, Second-Chance/Clock, NRU), visualize state changes, and track metrics live.
+A Java-based educational simulator for **virtual memory paging**, designed to illustrate how pages are loaded into physical memory (RAM), how **page faults** occur, and how different **page replacement algorithms** behave.
+
+The project includes a **Swing graphical interface**, step-by-step execution, full simulation mode, and a **benchmarking system** for comparing algorithms.
+
+## Project Overview
+
+Modern operating systems use **virtual memory** to give processes the illusion of a large, contiguous address space. This simulator models the paging mechanism by explicitly representing:
+
+- Virtual pages
+- Physical frames (RAM)
+- Page table
+- Page replacement algorithms
+
+The simulator focuses on understanding **behavior**, not hardware-level timing.
+
+## 🎯 Objectives
+
+- Simulate virtual memory paging
+- Visualize page hits and page faults
+- Implement and compare page replacement algorithms:
+  - FIFO (First-In, First-Out)
+  - LRU (Least Recently Used)
+  - OPT (Optimal – uses future knowledge)
+- Provide step-by-step and full-run execution
+- Generate performance statistics and benchmark reports
+
+## Implemented Algorithms
+
+| Algorithm | Description |
+|---------|------------|
+| FIFO | Replaces the page that has been in memory the longest |
+| LRU | Replaces the least recently used page |
+| OPT | Replaces the page whose next use is farthest in the future (theoretical optimum) |
+
+## 🖥️ Graphical Interface (Swing)
+
+The GUI allows the user to:
+
+- Set number of pages and frames
+- Choose the replacement algorithm (FIFO / LRU / OPT)
+- Enter or generate an access sequence
+- Run the simulation:
+  - **Step-by-step**
+  - **Run all**
+- Visualize:
+  - Page table
+  - Physical memory frames
+  - Current page, hit/miss status, victim page
+- Export statistics and benchmarks to text files
 
 ---
 
-##  Features
+## How to Run
 
-- **Page replacement policies**: FIFO, LRU, Optimal (Belady), Second-Chance/Clock, NRU (planned)
-- **Simulation controls**: Run, Step, Pause, Reset
-- **Configurable**: page size (logical), number of frames, policy, optional TLB (planned)
-- **Live metrics**: page faults, hit rate, writes-back, access counters; CSV export (planned)
-- **Trace support**: load from text/CSV; sample traces included
-- **Cross-platform UI**: JavaFX (portable, lightweight)
+### From IntelliJ IDEA
+1. Open the project
+2. Run `MemorySimulatorFrame` (GUI)
+3. Use the interface to configure and run simulations
 
----
-
-##  What I learned
-
-- How page faults occur and are resolved
-- Trade-offs between FIFO / LRU / Optimal / Clock / NRU
-- The effect of frame count and locality on fault rate
-- (Optional) TLB impact on AMAT and hit/miss rates
+### From Console (optional)
+Run `Simulator.java` for a non-GUI test run.
 
 ---
 
-## Getting Started
+## Notes
 
-### Prerequisites
-- Java 21 (Temurin or similar)
-- Git
-- No need to install Gradle; wrapper is included.
+- The OPT algorithm is implemented for **educational purposes** only, as real operating systems cannot know future memory accesses.
+- High miss rates are expected when access patterns are random and physical memory is small relative to virtual memory.
 
-### Clone the repository and run the application
+
