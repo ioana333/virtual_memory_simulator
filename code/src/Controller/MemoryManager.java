@@ -19,9 +19,7 @@ public class MemoryManager {
         this.replacementStrategy = replacementStrategy;
     }
 
-    /**
-     * Simuleaza accesul la o pagina virtuala
-     */
+    //simuleaza accesul
     public AccessResult accessPage(int pageNumber) {
         timeCounter++;
         PageTableEntry entry = pageTable.getEntry(pageNumber);
@@ -45,7 +43,7 @@ public class MemoryManager {
         Frame freeFrame = physicalMemory.findFreeFrame();
         if (freeFrame != null) {
             loadPageIntoFrame(entry, freeFrame);
-            return null; // nu am înlocuit pe nimeni
+            return null; // nu am inlocuit pe nimeni
         }
 
         // 2. Nu avem frame liber → alegem victima
@@ -55,11 +53,11 @@ public class MemoryManager {
 
         // aici, teoretic: dacă victimEntry.isDirty() -> scriem pe disc (simulat)
 
-        // eliberăm pagina victima
+        // eliberare pagina victima
         victimEntry.setInRAM(false);
         victimEntry.setFrameNumber(-1);
 
-        // încărcăm noua pagina in frame-ul victimei
+        // incarca noua pagina in frame-ul victimei
         loadPageIntoFrame(entry, victimFrame);
 
         return victimPageNumber;
@@ -71,7 +69,7 @@ public class MemoryManager {
         entry.setFrameNumber(frame.getFrameNumber());
         entry.setLastUsedTime(timeCounter);
         entry.setLoadedTime(timeCounter);
-        entry.setDirty(false); // la încărcare considerăm că nu e murdară
+        entry.setDirty(false); // la incarcare daca nu e dirty
     }
 
     public PageTable getPageTable() {
@@ -85,4 +83,27 @@ public class MemoryManager {
     public int getPageFaultCount() {
         return pageFaultCount;
     }
+
+    public int getTotalAccesses() {
+        return timeCounter;
+    }
+
+    public ReplacementStrategy getReplacementStrategy() {
+        return replacementStrategy;
+    }
+
+    public int getHitCount() {
+        return timeCounter - pageFaultCount;
+    }
+
+    public double getHitRate() {
+        if (timeCounter == 0) return 0.0;
+        return (double) getHitCount() / timeCounter;
+    }
+
+    public double getMissRate() {
+        if (timeCounter == 0) return 0.0;
+        return (double) pageFaultCount / timeCounter;
+    }
+
 }

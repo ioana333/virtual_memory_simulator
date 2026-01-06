@@ -1,0 +1,12 @@
+=== BENCHMARK COMPARISON ===
+pages=1000  frames=1000  accesses=2000  seed=123456789
+
+ALG   |         HITS |       FAULTS |     HIT(%) |    MISS(%) |   TIME(ms)
+----------------------------------------------------------------------
+FIFO   |         1150 |          850 |      57.50 |      42.50 |          7
+LRU    |         1150 |          850 |      57.50 |      42.50 |          5
+----------------------------------------------------------------------
+WINNER: LRU (fewest faults; tie -> fastest)
+COMPARE (LRU - FIFO): faults=+0, hitRate=+0.00%, time=-2 ms
+
+

@@ -1,0 +1,8 @@
+=== Simulation run ===
+Algorithm: FIFO
+Pages: 5, Frames: 3
+Access sequence: 0,2,1,0,3,2,4,0,2,3
+Total accesses: 10
+Hits: 2 (20.00%)
+Misses / Page faults: 8 (80.00%)
+
